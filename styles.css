@@ -1,0 +1,553 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #333;
+    color: #333;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.navbar .nav-links li {
+    margin: 0 15px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.navbar .desktop {
+    background-color: #ff6f61;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.navbar .mobile {
+    display: none;
+}
+
+@media screen and (max-width: 580px) {
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 10px 20px;
+        color: white;
+    }
+    .navbar .mobile {
+        display: flex;
+        background-color: #ff6f61;
+        border: none;
+        padding: 8px 15px;
+        color: white;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    .navbar .desktop {
+        display: none;
+    }
+    .navbar .logo {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .navbar .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white; /* Keep text color bright */
+    overflow: hidden; /* Prevent potential scroll issues */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("Images/a modern office.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(60%); /* Dim only the background */
+    z-index: 1; /* Place background below text */
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Place text above the background */
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: 1000;
+    color: white; /* Explicit text color */
+    animation: colorChange 3s infinite;
+}
+
+@keyframes colorChange {
+    0% {
+      color: rgb(114, 8, 235);
+    }
+    50% {
+      color: rgb(133, 90, 190)
+    }
+    100% {
+      color: rgb(255, 255, 255);
+    }
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: white; /* Explicit text color */
+}
+
+.hero .cta {
+    background-color: #ff6f61;
+    color: white;
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 613px) {
+    .hero {
+        height: 70vh;
+        background-size: 100%;
+        background-position: 0 -60px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero .cta {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+}
+
+/* Services Section */
+.services {
+    background-color: #333;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 56px;
+    margin-bottom: 20px;
+}
+
+.services-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-item {
+    padding: 20px;
+    width: 250px;
+    margin: 10px;
+    border-radius: 12px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.service-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 0.3px solid white;
+}
+
+.service-item h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+
+.service-item p {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .services h2 {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .services h2 {
+        font-size: 28px;
+    }
+    .service-item h3{
+        font-size: 18px;
+    }
+    .service-item p {
+        font-size: 11px;
+    }
+}
+
+.service-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* About Section */
+.about {
+    background-color: #333;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    height: 250px;
+    font-size: 20px;
+}
+
+.about h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    animation: bounce 1.5s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.about p {
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: slideIn 2s forwards;
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .about {
+        height: 150px;
+    }
+    .about h2 {
+        font-size: 30px;
+    }
+    .about p {
+        font-size: 13px;
+    }
+}
+
+.mission {
+    background-color: #333;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    height: 200px;
+    font-size: 20px;
+}
+
+.mission p {
+    transform: translateX(100%);
+    opacity: 0;
+    animation: slideIn 5s forwards;
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    mission {
+        height: 50px;
+    }
+    .mission p {
+        font-size: 13px
+    }
+}
+
+.why {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    height: 250px;
+    font-size:  20px;
+}
+
+@media screen and (max-width: 600px) {
+    .why {
+        font-size: 13px;
+        height: 150px;
+    }
+}
+
+.budget {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    height: 100px;
+    font-size:  20px;
+}
+
+@media screen and (max-width: 600px) {
+    .budget {
+        font-size: 13px
+    }
+}
+
+/*Image Carousel*/
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 500px; /* Adjust for the number of images */
+  }
+  
+  .carousel-item {
+    width: 500px; /* Ensure each image takes the full width */
+    flex-shrink: 0;
+    height: 500px;
+  }
+  
+  .carousel-item img {
+    width: 400px;
+    display: block;
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 2;
+  }
+  
+  .carousel-btn.prev {
+    left: 10px;
+    display: none;
+  }
+  
+  .carousel-btn.next {
+    right: 10px;
+    display: none;
+  }
+  
+  .carousel-btn:focus {
+    outline: none;
+  }  
+
+/*Office Hours*/
+.office-hours{
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+.office-hours h3{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.office-hours p{
+    font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .office-hours h3{
+        font-size: 22px;
+    }
+    .office-hours p{
+        font-size: 13px;
+    }
+}
+
+/*Contact*/
+.contacts{
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+}
+
+@media screen and (max-width: 600px) {
+    .contacts {
+        font-size: 20px;
+    }
+}
+
+form {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #ffffff, #f9f9f9); /* Light gradient background */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Softer shadow for a modern look */
+    font-family: 'Arial', sans-serif;
+    color: black;
+    font-size: 20px;
+  }
+
+@media screen and (max-width: 600px) {
+    form {
+        font-size: 13px;
+    }
+}
+  
+  /* Input and Textarea Styling */
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fcfcfc; /* Subtle background color for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+  
+  form textarea {
+    min-height: 120px;
+    resize: none; /* Prevent resizing */
+  }
+  
+  /* Input and Textarea Focus Effect */
+  form input[type="text"]:focus,
+  form input[type="email"]:focus,
+  form textarea:focus {
+    border-color: #007bff; /* Blue outline on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* Glow effect */
+    outline: none;
+    background-color: #f1f9ff; /* Slightly tinted background on focus */
+  }
+  
+  /* Button Styling */
+  form button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient button */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Button Hover Effect */
+  form button:hover {
+    background: linear-gradient(135deg, #0056b3, #003e8b); /* Darker gradient on hover */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); /* Button shadow on hover */
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 600px) {
+    form {
+      padding: 20px;
+    }
+  
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
+      font-size: 15px;
+    }
+  
+    form button {
+      font-size: 15px;
+    }
+  }
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
